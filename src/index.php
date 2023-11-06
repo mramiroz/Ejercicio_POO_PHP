@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	include_once("template/head.html");
 	include_once("Navegacion.php");
 	include_once("Cliente.php");
 	include_once("Producto.php");
@@ -25,4 +26,5 @@
 	}
 	else
 		include_once("formularioCompra.php");
+	include_once("template/foot.html");
 ?>
