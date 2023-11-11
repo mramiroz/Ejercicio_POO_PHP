@@ -2,7 +2,7 @@
 	class Navegacion{
 		const N_COMPRAR = "comprar";
 		const N_CLIENTE = "cliente";
-		const N_REQUEST = "get";
+		const N_REQUEST = "post";
 
 		public static function esComprar($str){
 			if (!isset($str[Navegacion::N_COMPRAR]))

@@ -24,6 +24,10 @@
 			<label for="<?=Cliente::C_CODIGO_POSTAL?>">Código Postal</label>
 			<input type="text" name="<?=Cliente::C_CODIGO_POSTAL?>">
 		</p>
+		<select name="<?=Cliente::C_TIPO_TICKET?>" id="<?=Cliente::C_TIPO_TICKET?>">
+			<option value="0">HTML</option>
+			<option value="1">MarkDown</option>
+		</select>
 		<input type="submit" name="<?=Navegacion::N_CLIENTE?>">
 	</form>
 </div>

@@ -5,13 +5,15 @@
 		const C_DIRECCION = "c_direccion";
 		const C_MUNICIPIO = "c_municipio";
 		const C_CODIGO_POSTAL = "c_codigoPostal";
+		const C_TIPO_TICKET = "c_tipoTicket";
 
 		private string $nombre;
 		private string $apellidos;
 		private string $direccion;
 		private string $municipio;
-		private int $codigoPostal;
+		private string $codigoPostal;
 
+		private string $tipoTicket;
 
 		public function getNombre()
 		{
@@ -33,14 +35,19 @@
 		{
 				return $this->codigoPostal;
 		}
+		public function getTipoTicket()
+		{
+				return $this->tipoTicket;
+		}
 
-		public function __construct(string $nombre, string $apellidos, string $direccion, string $municipio, int $codigoPostal)
+		public function __construct(string $nombre, string $apellidos, string $direccion, string $municipio, string $codigoPostal, string $tipoTicket)
 		{
 			$this->nombre = $nombre;
 			$this->apellidos = $apellidos;
 			$this->direccion = $direccion;
 			$this->municipio = $municipio;
 			$this->codigoPostal = $codigoPostal;
+			$this->tipoTicket = $tipoTicket;
 		}
 
 		public static function validarCliente($request){
@@ -53,9 +60,9 @@
 			return false;
 		}
 		
-		public static function crearCliente(string $nombre, string $apellidos, string $direccion, string $municipio, int $codigoPostal)
+		public static function crearCliente(string $nombre, string $apellidos, string $direccion, string $municipio, string $codigoPostal, string $tipoTicket)
 		{
-			$cliente = new Cliente($nombre, $apellidos, $direccion, $municipio, $codigoPostal);
+			$cliente = new Cliente($nombre, $apellidos, $direccion, $municipio, $codigoPostal, $tipoTicket);
 			return $cliente;
 		}
 

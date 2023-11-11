@@ -1,6 +1,7 @@
 <?php
 	class Producto{
 		const ID = "id";
+		const P_PRODUCTO = "producto";
 		const P_NOMBRE = "p_nombre";
 		const P_PRECIO = "p_precio";
 	

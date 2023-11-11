@@ -32,21 +32,52 @@
 		}
 		
 		public function crearHtmlFactura(){
-			$html = "<h1>Tienda Manuel</h1>";
-			$html .= "<h2>Factura Simplificada</h2>";
-			$html .= "<hr>";
-			$html .= "<p>Cliente: ".$this->cliente->getNombre()." ".$this->cliente->getApellidos()."</p>";
-			$html .= "<p>Dirección: ".$this->cliente->getDireccion()." ".$this->cliente->getCodigoPostal()."</p>";
-			$html .= "<p>Producto: </p>";
-			$html .= "<p>".$this->producto->getNombre()."      ".$this->producto->getPrecio()."€</p>";
-			$html .= "<p>Transporte: ".$this->transporte."€</p>";
-			$html .= "<p>Total: ".$this->importe."€</p>";
-			return $html;
+			$plantilla = file_get_contents('plantillasFactura/factura.html');
+			$plantilla = str_replace("{{nombre}}", $this->cliente->getNombre(), $plantilla);
+			$plantilla = str_replace("{{apellidos}}", $this->cliente->getApellidos(), $plantilla);
+			$plantilla = str_replace("{{direccion}}", $this->cliente->getDireccion(), $plantilla);
+			$plantilla = str_replace("{{municipio}}", $this->cliente->getMunicipio(), $plantilla);
+			$plantilla = str_replace("{{cp}}", $this->cliente->getCodigoPostal(), $plantilla);
+			$plantilla = str_replace("{{producto}}", $this->producto->getNombre(), $plantilla);
+			$plantilla = str_replace("{{precio}}", $this->producto->getPrecio(), $plantilla);
+			$plantilla = str_replace("{{transporte}}", $this->transporte, $plantilla);
+			$plantilla = str_replace("{{importe}}", $this->importe, $plantilla);
+			$nombre_factura = 'factura_'.time().'.html';
+			$ruta = "facturas/".$nombre_factura;
+			file_put_contents($ruta, $plantilla);
+			header("Location: $ruta");
+			exit;
+		}
+
+		public function crearMdFactura(){
+			$plantilla = file_get_contents('plantillasFactura/factura.md');
+			$plantilla = str_replace("{{nombre}}", $this->cliente->getNombre(), $plantilla);
+			$plantilla = str_replace("{{apellidos}}", $this->cliente->getApellidos(), $plantilla);
+			$plantilla = str_replace("{{direccion}}", $this->cliente->getDireccion(), $plantilla);
+			$plantilla = str_replace("{{municipio}}", $this->cliente->getMunicipio(), $plantilla);
+			$plantilla = str_replace("{{cp}}", $this->cliente->getCodigoPostal(), $plantilla);
+			$plantilla = str_replace("{{producto}}", $this->producto->getNombre(), $plantilla);
+			$plantilla = str_replace("{{precio}}", $this->producto->getPrecio(), $plantilla);
+			$plantilla = str_replace("{{transporte}}", $this->transporte, $plantilla);
+			$plantilla = str_replace("{{importe}}", $this->importe, $plantilla);
+			$nombre_factura = 'factura_'.time().'.md';
+			$ruta = "facturas/".$nombre_factura;
+			file_put_contents($ruta, $plantilla);
+			header("Location: $ruta");
+			exit;
 		}
 
 		public static function crearFactura(Cliente $cliente, Producto $producto){
 			$factura = new Factura($cliente, $producto);
 			$factura->importe = $factura->calcularFactura();
+			if ($factura->cliente->getTipoTicket() == '0')
+			{
+				echo $factura->crearHtmlFactura();
+			}
+			else
+			{
+				$factura->crearMdFactura();
+			}
 			return $factura;
 		}
 	}
