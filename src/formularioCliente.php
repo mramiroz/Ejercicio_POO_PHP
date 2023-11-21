@@ -1,6 +1,8 @@
 <?php
-	include_once("Navegacion.php");
-	include_once("Cliente.php");
+	include_once "vendor/autoload.php";
+	use POO\Util\Navegacion;
+	use POO\Model\Cliente;
+	include_once "template/head.html";
 ?>
 <div class="container">
 	<form action="" method="<?=Navegacion::N_REQUEST?>" class="login-form">
@@ -31,3 +33,6 @@
 		<input type="submit" name="<?=Navegacion::N_CLIENTE?>">
 	</form>
 </div>
+<?php
+	include_once "template/foot.html";
+?>

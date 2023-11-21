@@ -1,4 +1,6 @@
 <?php
+    namespace POO\Util;
+    include_once "vendor/autoload.php";
     class Sesion{
         public static function crearSesion(){
             session_start();

@@ -1,4 +1,6 @@
 <?php
+	namespace POO\Model;
+	include_once "vendor/autoload.php";
 	class Cliente{
 		const C_NOMBRE = "c_nombre";
 		const C_APELLIDOS = "c_apellidos";

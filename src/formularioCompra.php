@@ -1,11 +1,12 @@
 <?php
-	include_once("Tienda.php");
-	include_once("Producto.php");
-	include_once("Navegacion.php");
-
+	include_once "vendor/autoload.php";
+	use POO\Model\Tienda;
+	use POO\Model\Producto;
+	use POO\Util\Navegacion;
 
 	$tienda = new Tienda();
 	$productos = $tienda->getProductos();
+	include_once "template/head.html";
 ?>
 <div class="container">
 <?php
@@ -21,3 +22,6 @@
 	}
 ?>
 </div>
+<?php
+	include_once "template/foot.html";
+?>

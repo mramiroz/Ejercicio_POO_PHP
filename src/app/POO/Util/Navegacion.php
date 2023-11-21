@@ -1,4 +1,6 @@
 <?php
+	namespace POO\Util;
+	include_once "vendor/autoload.php";
 	class Navegacion{
 		const N_COMPRAR = "comprar";
 		const N_CLIENTE = "cliente";

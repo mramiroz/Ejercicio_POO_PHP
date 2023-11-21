@@ -1,4 +1,6 @@
 <?php
+	namespace POO\Util;
+	include_once "vendor/autoload.php";
 	class Constantes{
 		const CP_CANARIAS = ["35", "38"];
 		const CP_FUERA_PENINSULA = ["07", "51", "52"];

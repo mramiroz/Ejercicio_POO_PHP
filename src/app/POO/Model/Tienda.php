@@ -1,5 +1,7 @@
 <?php
-	include_once "Producto.php";
+	namespace POO\Model;
+	include_once "vendor/autoload.php";
+	use POO\Model\Producto;
 
 	class Tienda{
 		private $productos = [];

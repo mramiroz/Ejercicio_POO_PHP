@@ -1,4 +1,6 @@
 <?php
+	namespace POO\Model;
+	include_once "vendor/autoload.php";
 	class Producto{
 		const ID = "id";
 		const P_PRODUCTO = "producto";

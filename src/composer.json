@@ -1,0 +1,12 @@
+{
+    "name": "alumno/test",
+    "authors": [
+        {
+            "name": "Manuel Ramiro Zabaleta",
+            "email": "manuel.ramiro2@educa.madrid.org"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {"psr-4": {"POO\\": "app/POO"}}
+}

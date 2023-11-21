@@ -1,9 +1,12 @@
 <?php
-	include_once("Sesion.php");
-	include_once("Navegacion.php");
-	include_once("Cliente.php");
-	include_once("Producto.php");
-	include_once("Factura.php");
+
+	include __DIR__ ."/vendor/autoload.php";
+	use POO\Util\Sesion;
+	use POO\Util\Navegacion;
+	use POO\Model\Cliente;
+	use POO\Model\Producto;
+	use POO\Model\Factura;
+
 	Sesion::crearSesion();
 	
 	$request = $_POST;
