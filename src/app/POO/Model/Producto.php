@@ -2,13 +2,10 @@
 	namespace POO\Model;
 	include_once "vendor/autoload.php";
 	class Producto{
-		const ID = "id";
 		const P_PRODUCTO = "producto";
 		const P_NOMBRE = "p_nombre";
 		const P_PRECIO = "p_precio";
 	
-		private static int 	$count = 0;
-		private int 		$id;
 		private string 		$nombre;
 		private int 		$precio;
 
@@ -24,7 +21,6 @@
 
 		public function __construct(string $nombre, int $precio)
 		{
-			$this->id = ++self::$count;
 			$this->nombre = $nombre;
 			$this->precio = $precio;
 		}

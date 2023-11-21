@@ -5,12 +5,11 @@
 	use POO\Util\Navegacion;
 
 	$tienda = new Tienda();
-	$productos = $tienda->getProductos();
 	include_once "template/head.html";
 ?>
 <div class="container">
 <?php
-	foreach ($productos as $producto) {
+	foreach ($tienda->getProductos() as $producto) {
 ?>
 	<form action="" method="<?=Navegacion::N_REQUEST?>" class="article-container">
 		<label for="<?=Producto::P_PRODUCTO?>" class="article-title"><? echo $producto->__toString()?></label>

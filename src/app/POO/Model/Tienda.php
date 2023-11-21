@@ -22,7 +22,6 @@
 			$productos[] = new Producto("Canapé de 120", 200);
 			$productos[] = new Producto("Canapé de 150", 250);
 			$productos[] = new Producto("Lavadores y lavavajillas", 200);
-			return $productos;
 		}
 	}
 ?>
