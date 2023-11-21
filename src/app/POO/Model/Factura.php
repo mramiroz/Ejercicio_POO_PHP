@@ -22,12 +22,12 @@
 			foreach (Constantes::CP_FUERA_PENINSULA as $cp) {
 				if ($cod == $cp){
 					$this->transporte *= Constantes::RECARGO_FUERA_PENINSULA;
-					return $this->producto->getPrecio() + $this->transporte;
-				}
-			}
-			foreach (Constantes::CP_CANARIAS as $cp) {
-				if ($cod == $cp){
-					$this->transporte *= Constantes::DESCUENTO_CANARIAS;
+					foreach (Constantes::CP_CANARIAS as $cp2) {
+						if ($cod == $cp2){
+							$this->transporte *= Constantes::DESCUENTO_CANARIAS;
+							return $this->producto->getPrecio() + $this->transporte;
+						}
+					}
 					return $this->producto->getPrecio() + $this->transporte;
 				}
 			}
