@@ -72,7 +72,7 @@ Si se encuentra en el formulario de cliente y ha pulsado el botón de enviar, se
 <?php
 	foreach ($productos as $producto) {
 ?>
-	<form action="" method="<?=Navegacion::N_REQUEST?>" class="article-container">
+	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, "UTF-8" );?>" method="<?=Navegacion::N_REQUEST?>" class="article-container">
 		<label for="<?=Producto::P_PRODUCTO?>" class="article-title"><? echo $producto->__toString()?></label>
 		<input type="hidden" name="<?=Producto::P_NOMBRE?>" value="<?=$producto->getNombre()?>">
 		<input type="hidden" name="<?=Producto::P_PRECIO?>" value="<?=$producto->getPrecio()?>">
@@ -97,7 +97,7 @@ Para obtener los objetos de la tienda se crea un objeto tipo Tienda y se cargan 
 	include_once "template/head.html";
 ?>
 <div class="container">
-	<form action="" method="<?=Navegacion::N_REQUEST?>" class="login-form">
+	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, "UTF-8" );?>" method="<?=Navegacion::N_REQUEST?>" class="login-form">
 		<p>
 			<label for="<?=Cliente::C_NOMBRE?>">Nombre</label>
 			<input type="text" name="<?=Cliente::C_NOMBRE?>">

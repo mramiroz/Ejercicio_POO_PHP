@@ -5,7 +5,7 @@
 	include_once "template/head.html";
 ?>
 <div class="container">
-	<form action="" method="<?=Navegacion::N_REQUEST?>" class="login-form">
+	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, "UTF-8" );?>" method="<?=Navegacion::N_REQUEST?>" class="login-form">
 		<p>
 			<label for="<?=Cliente::C_NOMBRE?>">Nombre</label>
 			<input type="text" name="<?=Cliente::C_NOMBRE?>">
